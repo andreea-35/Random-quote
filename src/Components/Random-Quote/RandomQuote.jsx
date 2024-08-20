@@ -6,7 +6,7 @@ import reload_icon from '../Assets/reload.png';
 const RandomQuote = () => {
 
     const [quotes, setQuotes] = useState([]);
-    const [quote, setQuote] = useState({ q: "", a: "" });
+    const [quote, setQuote] = useState({ q: "Quote quote qutoe quote", a: "Mr Quote" });
     //const [quote, setQuote] = useState({ q: "Selfishness and greed, individual or national, cause most of our troubles", a: "Harry S. Truman" });
 
     // Function to load quotes from API
@@ -42,7 +42,7 @@ const RandomQuote = () => {
             <div>
                 <div className="line"></div>
                 <div className="bottom">
-                    <div className="author">{quote.a}</div>
+                    <div className="author">- {quote.a}</div>
                     <div className="icons">
                         <img src={reload_icon} onClick={() => setRandomQuote(quotes)} alt="Reload Icon" />
                         <img src={twitter_icon} onClick={() => twitter()} alt="Twitter Icon" />
