@@ -3,23 +3,32 @@
     flex-direction: column;
     align-items:center;
     margin:auto;
-    margin-top: 230px;
+    /*
+    margin-top: 200px;
+    */
     background: #bbbbca81;
-    width: 800px;
+    /* 
+    width: 800px; 
+    */
+    width: 60vw; 
     border-radius: 15px;
+    max-height:500px;
 }
 
 .quote{
-    padding:60px 110px 30px 110px;
+    padding:50px 90px 30px 90px;
     color: white;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     font-family: "Monsterrat", sans-serif;
     font-style: italic;
 }
 
 .line{
+    /*
     width: 680px;
+    */
+    width: 50vw;
     height:1.5px;
     background: white;
 }
@@ -37,6 +46,8 @@
     font-size: 20px;
     font-weight: 500;
     font-family: "Lato", sans-serif;
+    width:200px;
+    /*text-wrap: wrap;*/
 }
 
 .icons{
@@ -49,11 +60,18 @@
     cursor:pointer;
 }
 
+.reload-btn{
+    height:40px;
+    cursor:pointer;
+    position:relative;
+    left:-40px;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
 
-.icons img:first-child:hover{
+.reload-btn:hover{
     animation: spin 0.5s ease-in-out;
 }

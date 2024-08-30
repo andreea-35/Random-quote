@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './RandomQuote.css';
 import twitter_icon from '../Assets/twitter.png';
 import reload_icon from '../Assets/reload.png';
+import copy_icon from '../Assets/copy.png';
 
 const RandomQuote = () => {
 
@@ -11,18 +12,33 @@ const RandomQuote = () => {
 
     // Function to load quotes from API
     async function loadQuotes() {
-        const response = await fetch("https://type.fit/api/quotes");
-        const quotesData = await response.json();
-        setQuotes(quotesData);
-        setRandomQuote(quotesData);
+        try {
+            const response = await fetch("https://api.api-ninjas.com/v1/quotes?category=happiness", {
+                headers: {
+                    'X-Api-Key': 'GKa1nkwYYYWEJd2FI0LuHQ==ItGcFMAqp1oAMtyh'
+                }
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const quotesData = await response.json();
+            setQuotes(quotesData);
+            setRandomQuote(quotesData);
+        } catch (error) {
+            console.error("Failed to fetch quotes: ", error.message);
+            // You can display an error message to the user here if needed
+        }
     }
+    
 
     // Function to select a random quote
     const setRandomQuote = (quotesArray) => {
         const randomIndex = Math.floor(Math.random() * quotesArray.length);
         const select = quotesArray[randomIndex];
         setQuote({
-            q: select.text,
+            q: select.quote,
             a: select.author.split(',')[0]
         });
     }
@@ -43,9 +59,10 @@ const RandomQuote = () => {
                 <div className="line"></div>
                 <div className="bottom">
                     <div className="author">- {quote.a}</div>
+                    <img className="reload-btn" src={reload_icon} onClick={() => loadQuotes()} alt="Reload Icon" />
                     <div className="icons">
-                        <img src={reload_icon} onClick={() => setRandomQuote(quotes)} alt="Reload Icon" />
-                        <img src={twitter_icon} onClick={() => twitter()} alt="Twitter Icon" />
+                        <img src={copy_icon} onClick={() =>  navigator.clipboard.writeText(`${quote.q} - ${quote.a}`)} alt="Copy to Clipboard" />
+                        <img src={twitter_icon} onClick={() => twitter()} alt="Tweet it" />
                     </div>
                 </div>
             </div>
