@@ -12,10 +12,11 @@ const RandomQuote = () => {
 
     // Function to load quotes from API
     async function loadQuotes() {
+        let categName = document.getElementById("category").value;
         try {
-            const response = await fetch("https://api.api-ninjas.com/v1/quotes?category=happiness", {
+            const response = await fetch("https://api.api-ninjas.com/v1/quotes?category="+categName, {
                 headers: {
-                    'X-Api-Key': 'GKa1nkwYYYWEJd2FI0LuHQ==ItGcFMAqp1oAMtyh'
+                    'X-Api-Key': process.env.REACT_APP_API_KEY 
                 }
             });
     
@@ -54,6 +55,15 @@ const RandomQuote = () => {
 
     return (
         <div className='container'>
+            <select id="category">
+                <option value="happiness" selected>Happiness</option>
+                <option value="change">Change</option>
+                <option value="courage">Courage</option>
+                <option value="dating" >Dating</option>
+                <option value="dreams" >Dreams</option>
+                <option value="equality" >Equality</option>
+                <option value="family" >Family</option>
+            </select>
             <div className="quote">{quote.q}</div>
             <div>
                 <div className="line"></div>
