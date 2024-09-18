@@ -15,14 +15,86 @@
     max-height:500px;
 }
 
+
+.category-select{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    /*width:100%;
+    padding-left: 50px;
+    */
+    margin-top: 20px;
+    color:white;
+    font-size:16px;
+    position: relative;
+    padding: 3px 0px 3px 10px;
+    /*
+    border: solid 1.5px rgba(255, 255, 255, 0.495);
+    border-radius: 5px;
+    */
+}
+
+.category-select p{
+    width: auto;
+    margin-bottom: 4px;
+}
+
+.category-select p i{
+    font-size: 10px;
+    margin: 0px 2px 7px 2px;
+    line-height: 100%;
+}
+
+#category{
+    appearance: none;
+    width:85px;
+    /* padding: 5px; */
+    background-color: #ffffff00;
+    color:white;
+    border: 0;
+    font-size:16px;
+    position:relative;
+}
+
+#category:hover{
+    cursor:pointer;
+}
+
 .quote{
-    padding:50px 90px 30px 90px;
+    padding:30px 90px 35px 90px;
     color: white;
     font-size: 30px;
     text-align: center;
     font-family: "Monsterrat", sans-serif;
     font-style: italic;
+    position: relative;
 }
+
+.quote::before {
+    content: open-quote;
+    /* Place it at the top-left */
+    top: -45px;
+    left: -5px;
+  }
+  
+.quote::after {
+    content: close-quote;
+    /* Place it at thee bottom-right */
+    bottom: 20px;
+    right: 10px;
+  }
+
+.quote::before,
+.quote::after {
+  display: block;
+  width: 60px;
+  height: 60px;
+  line-height: 2;
+  font-size: 3em;
+  text-align: center;
+  position: absolute;
+}
+
 
 .line{
     /*
