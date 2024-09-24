@@ -39,7 +39,7 @@ const RandomQuote = () => {
     }
 
     const twitter = () => {
-        window.open(`https://twitter.com/intent/tweet?text=${quote.q} - ${quote.a}`);
+        window.open(`https://twitter.com/intent/tweet?text=${quote.q} ${quote.a}`);
     }
 
     // Load a quote when the component mounts
@@ -63,14 +63,12 @@ const RandomQuote = () => {
             </div>
             <div className="quote">{quote.q}</div>
             <div>
+                <div className="author">{quote.a}</div>
                 <div className="line"></div>
                 <div className="bottom">
-                    <div className="author">{quote.a}</div>
+                    <img src={copy_icon} onClick={() => navigator.clipboard.writeText(`${quote.q} ${quote.a}`)} alt="Copy to Clipboard" />
                     <img className="reload-btn" src={reload_icon} onClick={() => loadQuote()} alt="Reload Icon" />
-                    <div className="icons">
-                        <img src={copy_icon} onClick={() => navigator.clipboard.writeText(`${quote.q} - ${quote.a}`)} alt="Copy to Clipboard" />
-                        <img src={twitter_icon} onClick={() => twitter()} alt="Tweet it" />
-                    </div>
+                    <img src={twitter_icon} onClick={() => twitter()} alt="Tweet it" />
                 </div>
             </div>
         </div>

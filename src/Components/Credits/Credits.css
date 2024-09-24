@@ -9,9 +9,12 @@
     left:0;
     color: whitesmoke;
     font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 p{
-    width: 50%;
+    width: auto;
     margin: 3px;
 }
