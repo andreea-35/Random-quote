@@ -11,32 +11,30 @@ const RandomQuote = () => {
 
     // Function to load a single quote from the API
     async function loadQuote() {
-        let categName = document.getElementById("category").value;
+        let categName = document.getElementById("category").value.trim().toLowerCase(); // Get selected category
+    
         try {
-            const response = await fetch("https://api.api-ninjas.com/v1/quotes?category=" + categName, {
-                headers: {
-                    'X-Api-Key': process.env.REACT_APP_API_KEY
-                }
-            });
-
+            const response = await fetch(`https://api.quotable.io/random?tags=${categName}`);
+    
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            const [quoteData] = await response.json(); // Destructure to get the first (and only) object from the array
+    
+            const quoteData = await response.json(); // Get the quote object
+    
             setQuote({
-                q: quoteData.quote,
-                a: "- "+quoteData.author
+                q: quoteData.content, // Quote text
+                a: "- " + quoteData.author // Author
             });
         } catch (error) {
             console.error("Failed to fetch quotes: ", error.message);
-            // Display an error message to the user if needed
+    
             setQuote({
                 q: "Error fetching quote. Please try again later.",
                 a: ""
             });
         }
-    }
+    }  
 
     const twitter = () => {
         window.open(`https://twitter.com/intent/tweet?text=${quote.q} ${quote.a}`);
@@ -52,13 +50,13 @@ const RandomQuote = () => {
             <div className='category-select'>
                 <p>Category  <i>&#x25B6;</i>  </p>
                 <select id="category">
-                    <option value="happiness" selected>Happiness</option>
-                    <option value="change">Change</option>
-                    <option value="courage">Courage</option>
-                    <option value="dating">Dating</option>
-                    <option value="dreams">Dreams</option>
-                    <option value="equality">Equality</option>
-                    <option value="family">Family</option>
+                    <option value="inspirational" selected>Inspirational</option>
+                    <option value="happiness">Happiness</option>
+                    <option value="love">Love</option>
+                    <option value="success">Success</option>
+                    <option value="friendship">Friendship</option>
+                    <option value="wisdom">Wisdom</option>
+                    <option value="education">Education</option>
                 </select>
             </div>
             <div className="quote">{quote.q}</div>
