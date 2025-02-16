@@ -18,3 +18,16 @@ p{
     width: auto;
     margin: 3px;
 }
+
+p a{
+    text-decoration: none;
+}
+
+p a:hover{
+    text-decoration: underline;
+}
+
+a:visited{
+    color:whitesmoke;
+    text-decoration: none;
+}

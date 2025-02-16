@@ -79,7 +79,7 @@
   
 .quote::after {
     content: close-quote;
-    /* Place it at thee bottom-right */
+    /* Place it at the bottom-right */
     bottom: 20px;
     right: 10px;
   }
