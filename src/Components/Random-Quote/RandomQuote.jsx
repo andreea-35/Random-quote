@@ -48,7 +48,7 @@ const RandomQuote = () => {
     return (
         <div className='container'>
             <div className='category-select'>
-                <p>Category  <i>&#x25B6;</i>  </p>
+                <p>Category  <i>&#x25B6;</i> </p>
                 <select id="category">
                     <option value="inspirational" selected>Inspirational</option>
                     <option value="happiness">Happiness</option>
