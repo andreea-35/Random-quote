@@ -13,7 +13,7 @@ un site web générateur de citations anglaises aléatoires
 ## Contexte
 
 J'ai crèe ce site pour apprendre les bases du framework React. J'ai donc commencé par suivre un [tutoriel](https://www.youtube.com/watch?v=oZb_nGEKZTQ&t=1228s)
-mais je l'ai developpe avec les éléments suivants :
+mais je l'ai developpé avec les éléments suivants :
 - la fonction de catégorie
 - une [api](https://github.com/lukePeavey/quotable) différente (qui génère une seule citation à chaque fois au lieu des 50 générées sur l'ancienne)
 - une refonte de l'interface (pour accueillir de la nouvelle fonction de catégorie)
